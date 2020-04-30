@@ -13,6 +13,14 @@ module.exports = {
       }
     }
   },
+    //打包优化moment时间函数
+    // plugins: [
+    //     new webpack.ContextReplacementPlugin(
+    //     /moment[/\\]locale$/,
+    //     /zh-cn/,
+    //     ),
+    // ],
+
     // 将部署应用程序的基本URL
     // 将部署应用程序的基本URL。
     // 默认情况下，Vue CLI假设您的应用程序将部署在域的根目录下。

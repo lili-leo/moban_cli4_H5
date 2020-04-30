@@ -15,7 +15,12 @@ Vue.prototype.$global_fun=global_fun
 // Vue.prototype.changeData = function (){
 //   alert('执行成功');
 // }
-
+//全局过滤器
+// import moment from 'moment'  //时间处理插件
+// Vue.filter('dateFormat', function (dataStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
+//   moment(dataStr).format(pattern)
+// })
+//   使用过滤器   <p>{{ money | dateFormat }}</p>   
 new Vue({
   router,
   store,
