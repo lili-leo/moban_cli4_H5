@@ -5,6 +5,7 @@
   </div>
 </template>
 <script>
+let time = new Date()
 import { mapState,mapGetters,mapMutations,mapActions } from 'vuex';
 import {requestLogin} from "../api/index.js";
 export default{
@@ -32,6 +33,9 @@ export default{
   },
   mounted(){
     console.log("mounted")
+    console.log(time)
+    console.log(Date.parse(time))
+    console.log(moment(time).format('HH:mm:ss'))
   },
   methods:{
     ...mapMutations(["ADD_BOOK"]),
