@@ -4,8 +4,17 @@ import router from './router/index.js'
 import store from './store/index'
 import ViewUI from 'view-design';
 import 'view-design/dist/styles/iview.css';
+import global from "../src/api/global.js"
+import global_fun from "../src/api/global_fun.js"
 Vue.use(ViewUI);
+
 Vue.config.productionTip = false;
+Vue.prototype.$global=global
+Vue.prototype.$global_fun=global_fun
+// 全局函数方式一
+// Vue.prototype.changeData = function (){
+//   alert('执行成功');
+// }
 
 new Vue({
   router,

@@ -2,7 +2,7 @@
 // const webpack = require("webpack");
 const CompressionWebpackPlugin = require('compression-webpack-plugin'); // gzip 压缩
 const productionGzipExtensions = ['js', 'html', 'css'];
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const IS_PROD = process.env.NODE_ENV === 'production';
 module.exports = {
   // extends: ["plugin:vue/essential"], // "@vue/prettier"关闭检查
@@ -18,7 +18,7 @@ module.exports = {
     // 默认情况下，Vue CLI假设您的应用程序将部署在域的根目录下。
     // https://www.my-app.com/。如果应用程序部署在子路径上，则需要使用此选项指定子路径。例如，如果您的应用程序部署在https://www.foobar.com/my-app/，集baseUrl到'/my-app/'.
 
-    publicPath: process.env.NODE_ENV === 'production' ? './' : './',
+    publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
 
     // outputDir: 在npm run build时 生成文件的目录 type:string, default:'dist'
 

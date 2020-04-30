@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-29 10:12:46
- * @LastEditTime: 2020-04-29 11:42:00
+ * @LastEditTime: 2020-04-30 10:13:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \cli4\src\api\index.js
@@ -16,8 +16,8 @@ $axios.interceptors.request.use((req) => {
   return req;
 }, (error) => Promise.reject(error));
 
-const base = 'api';
-// const base = 'http://api.k780.com/?app=weather.today&weaid=1&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json';
+// const base = 'api';
+const base = 'http://api.k780.com/?app=weather.today&weaid=1&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json';
 // // $axios.defaults.baseURL = 'http://182.254.146.100:8899/api/'
 
 export const requestLogin = params => { return $axios.get(`${base}`, params)};
