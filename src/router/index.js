@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-04-28 16:24:19
- * @LastEditTime: 2020-04-30 10:11:47
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \cli4\src\router\index.js
- */
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
@@ -27,6 +19,24 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   }
+  // {
+  //   path: '/me',
+  //   name: 'Me',
+  //   component: Me,
+  //   children: [
+  //     {
+  //       path: 'collection',//以“/”开头的嵌套路径会被当作根路径，所以子路由上不用加“/”;在生成路由时，主路由上的path会被自动添加到子路由之前，所以子路由上的path不用在重新声明主路由上的path了。
+  //       name: 'Collection',
+  //       component: Collection
+  //     },
+  //     {
+  //       path: 'trace',
+  //       name: 'Trace',
+  //       component: Trace
+  //     }
+  //   ]
+  // }
+
 ];
 
 const router = new VueRouter({
