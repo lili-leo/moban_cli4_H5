@@ -4,8 +4,7 @@ import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
+const routes = [{
     path: "/",
     name: "Home",
     component: Home
@@ -17,7 +16,11 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      import( /* webpackChunkName: "about" */ "../views/About.vue")
+  },
+  {
+    path: "*",
+    redirect: "/"
   }
   // {
   //   path: '/me',
@@ -42,5 +45,33 @@ const router = new VueRouter({
   mode: "hash",
   routes
 });
+router.beforeEach((to, from, next) => {
+  // if (to.matched.length ===0) {  //如果未匹配到路由
+  //   from.name ? next({ name:from.name }) : next('/');   //如果上级也未匹配到路由则跳转登录页面，如果上级能匹配到则转上级路由
+  // } else {
+  //   next();    //如果匹配到正确跳转
+  // }
+  if (to.meta.requireAuth) {
+    console.log("我要进入到", to.name);
+    // 判断是否登录
+    if (isLog) {
+      next(true)
+    } else {
+      // 如果没有登录跳转login 后面加一个条件redirect 等于要去的页面的地址 （方便登录成功后返回原页面）
+      next('/login?redirect=' + to.path)
+
+      //   sessionStorage.setItem('referrer', from.path) //储存来源路由，可以实现登陆后跳转
+      //   var referrer = sessionStorage.getItem('referrer');
+      //   if (referrer != null) {
+      //     this.$router.push(referrer)
+      //   } else {
+      //     this.$router.push('/home')
+      //   }
+      //   next('/login?redirect=' + to.path)
+    }
+  } else {
+    next();
+  }
+})
 
 export default router;

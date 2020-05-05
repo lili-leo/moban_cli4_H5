@@ -35,7 +35,7 @@ export default {
     console.log("mounted");
     console.log(time);
     console.log(Date.parse(time));
-    console.log(moment(time).format("HH:mm:ss"))
+    // console.log(moment(time).format("HH:mm:ss"))
   },
   methods: {
     ...mapMutations(["ADD_BOOK"]),
