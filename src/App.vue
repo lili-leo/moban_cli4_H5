@@ -4,7 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view />
+    <transition :name="fadee" mode="out-in" appear>
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -28,5 +30,17 @@
       color: #42b983;
     }
   }
+}
+.fadee-left-enter,
+.fadee-right-leave-active {
+  -webkit-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+}
+
+.fadee-left-leave-active,
+.fadee-right-enter {
+  opacity: 0;
+  -webkit-transform: translate(-100%, 0);
+  transform: translate(-100% 0);
 }
 </style>
