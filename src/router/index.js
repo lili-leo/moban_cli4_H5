@@ -54,11 +54,12 @@ router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
     console.log("我要进入到", to.name);
     // 判断是否登录
-    if (isLog) {
+    // if (true){
+      // if (isLog) {
       next(true)
-    } else {
+    // } else {
       // 如果没有登录跳转login 后面加一个条件redirect 等于要去的页面的地址 （方便登录成功后返回原页面）
-      next('/login?redirect=' + to.path)
+      // next('/login?redirect=' + to.path)
 
       //   sessionStorage.setItem('referrer', from.path) //储存来源路由，可以实现登陆后跳转
       //   var referrer = sessionStorage.getItem('referrer');
@@ -68,7 +69,7 @@ router.beforeEach((to, from, next) => {
       //     this.$router.push('/home')
       //   }
       //   next('/login?redirect=' + to.path)
-    }
+    // }
   } else {
     next();
   }

@@ -1,10 +1,18 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-01 12:05:05
+ * @LastEditTime: 2020-05-09 10:19:51
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \moban_cli4\src\App.vue
+ -->
 <template>
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <transition :name="fadee" mode="out-in" appear>
+    <transition name="fadee" mode="out-in" appear>
       <router-view />
     </transition>
   </div>
@@ -31,14 +39,14 @@
     }
   }
 }
-.fadee-left-enter,
-.fadee-right-leave-active {
+.fadee-enter,
+.fadee-leave-active {
   -webkit-transform: translate(100%, 0);
   transform: translate(100%, 0);
 }
 
-.fadee-left-leave-active,
-.fadee-right-enter {
+.fadee-leave-active,
+.fadee-enter-active {
   opacity: 0;
   -webkit-transform: translate(-100%, 0);
   transform: translate(-100% 0);
