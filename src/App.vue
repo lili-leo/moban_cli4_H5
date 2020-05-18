@@ -1,11 +1,14 @@
+
 <template>
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <transition name="fadee" mode="out-in" appear>
-      <router-view />
+    <transition :name="transitionName" mode="out-in">
+      <keep-alive>
+              <router-view class="transitionBody"></router-view>
+          </keep-alive>
     </transition>
   </div>
 </template>
@@ -31,16 +34,30 @@
     }
   }
 }
-.fadee-enter,
-.fadee-leave-active {
+.transitionBody{
+ transition: all 0.4s ease-out; /*定义动画的时间和过渡效果*/
+}
+.transitionLeft-enter,
+.transitionRight-leave-active {
   -webkit-transform: translate(100%, 0);
   transform: translate(100%, 0);
+   /*当左滑进入右滑进入过渡动画*/
 }
-
-.fadee-leave-active,
-.fadee-enter-active {
-  opacity: 0;
+.transitionLeft-leave-active,
+.transitionRight-enter {
   -webkit-transform: translate(-100%, 0);
-  transform: translate(-100% 0);
+  transform: translate(-100%, 0);
 }
+// .fadee-enter,
+// .fadee-leave-active {
+//   -webkit-transform: translate(100%, 0);
+//   transform: translate(100%, 0);
+// }
+
+// .fadee-leave-active,
+// .fadee-enter-active {
+//   opacity: 0;
+//   -webkit-transform: translate(-100%, 0);
+//   transform: translate(-100% 0);
+// }
 </style>
