@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-05-01 12:05:05
+ * @LastEditTime: 2020-05-09 20:26:13
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \moban_cli4\src\api\http.js
+ */
 
 
 /**
@@ -68,7 +76,7 @@ const errorHandle = (status, other) => {
 // 创建axios实例
 var $axios = axios.create({    timeout: 1000 * 12});
 // 设置post请求头
-// instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+$axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 /**
  * 请求拦截器
  * 每次请求前，如果存在token则在请求头中携带token
@@ -79,9 +87,9 @@ $axios.interceptors.request.use(
         // 但是即使token存在，也有可能token是过期的，所以在每次的请求头中携带token
         // 后台根据携带的token判断用户的登录情况，并返回给我们对应的状态码
         // 而后我们可以在响应拦截器中，根据状态码进行一些统一的操作。
-        config.headers = {
-            'content-Type': 'application/x-www-form-urlencoded'
-            }
+        // config.headers = {
+        //     'content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        //     }
         config.data=JSON.stringify(config.data)
         const token = store.state.token;
         token && (config.headers.Authorization = token);

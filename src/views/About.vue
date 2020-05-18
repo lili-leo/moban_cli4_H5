@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-01 12:05:05
+ * @LastEditTime: 2020-05-09 19:56:55
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \moban_cli4\src\views\About.vue
+ -->
 <template>
   <div class="about">
     <h1>This is an about page</h1>
@@ -7,7 +15,7 @@
 <script>
 let time = new Date();
 import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
-import { requestLogin } from "../api/index.js";
+import { ceshi } from "../api/index.js";
 export default {
   date() {
     return {
@@ -54,7 +62,7 @@ export default {
       this.adduseNam();
       this.AadduseNam();
       this.$Message.info("提示");
-      requestLogin({}).then(res=> {
+      ceshi({}).then(res=> {
         console.log(res);
         console.log(res.status);
         console.log(res.data);

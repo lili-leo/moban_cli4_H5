@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-05-01 12:05:05
- * @LastEditTime: 2020-05-09 10:19:51
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \moban_cli4\src\App.vue
- -->
 <template>
   <div id="app">
     <div id="nav">

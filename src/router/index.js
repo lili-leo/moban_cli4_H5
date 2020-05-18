@@ -3,6 +3,10 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
+// 按照需求可加，防止添加同一个路由页面不渲染
+// Router.prototype.push = function push(location) {
+//   return routerPush.call(this, location).catch(error => error)
+// }
 
 const routes = [{
     path: "/",
@@ -12,9 +16,7 @@ const routes = [{
   {
     path: "/about",
     name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    meta: { requireLogin: true, role: 0 },//requireLogin是否需要登陆，role是否支持试玩
     component: () =>
       import( /* webpackChunkName: "about" */ "../views/About.vue")
   },
@@ -51,7 +53,7 @@ router.beforeEach((to, from, next) => {
   // } else {
   //   next();    //如果匹配到正确跳转
   // }
-  if (to.meta.requireAuth) {
+  if (to.meta.requireLogin) {
     console.log("我要进入到", to.name);
     // 判断是否登录
     // if (true){

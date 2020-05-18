@@ -1,26 +1,27 @@
-/*
- * @Author: your name
- * @Date: 2020-04-29 10:12:46
- * @LastEditTime: 2020-04-30 10:13:24
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \cli4\src\api\index.js
- */
-
 import $axios from './http.js'
-import qs from 'qs'
-$axios.interceptors.request.use((req) => {
-  if (req.method === 'post') {
-    req.data = qs.stringify(req.data);
-  }
-  return req;
-}, (error) => Promise.reject(error));
+// import qs from 'qs'
+// $axios.interceptors.request.use((req) => {
+//   if (req.method === 'post') {
+//     req.data = qs.stringify(req.data);
+//   }
+//   return req;
+// }, (error) => Promise.reject(error));
 
-// const base = 'api';
-const base = 'http://api.k780.com/?app=weather.today&weaid=1&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json';
-// // $axios.defaults.baseURL = 'http://182.254.146.100:8899/api/'
+const base = 'http://47.75.90.65:8082/forward/api/router';
+// const base = 'http://api.k780.com/?app=weather.today&weaid=1&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json';
+// export const getUserList = params => { return $axios.get(`${base}/user`, { params: params }); };
+// export const getUserList = params => { return $axios.post(`${base}/user/list`, qs.stringify(params)); };
 
-export const requestLogin = params => { return $axios.get(`${base}`, params)};
+// const aaa={
+//     type: "index",
+//     method: "pt.index.getIndexSwiper",
+//     format: "json",
+//     ver: "1.0.0",
+//     appKey: "1000",
+//     appSecret: "asdfghjkqwertyu",
+//     sign: "39207ea77d74ab5a29ee22cc88342c5d",
+//   }
+export const ceshi = () => { return $axios.post(`${base}`, `type=index&method=pt.index.getIndexSwiper&format=json&ver=1.0.0&appKey=1000&appSecret=asdfghjkqwertyu&sign=39207ea77d74ab5a29ee22cc88342c5d`)};
 
 export const getUserList = params => { return $axios.get(`${base}/user/list`, { params: params }); };
 
@@ -33,6 +34,3 @@ export const batchRemoveUser = params => { return $axios.get(`${base}/user/batch
 export const editUser = params => { return $axios.post(`${base}/user/edit`, { params: params }); };
 
 export const addUser = params => { return $axios.get(`${base}/user/add`, { params: params }); };
-
-// export default caipiao;
-// import requestLogin from "@/utils/request";
