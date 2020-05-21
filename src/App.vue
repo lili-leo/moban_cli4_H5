@@ -11,7 +11,23 @@
     </transition>
   </div>
 </template>
-
+<script>
+export default {
+   data () {
+    return {
+      transitionName: 'transitionRight'
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      const arr = ['home', 'type', 'activity', 'mine']
+      const compare = arr.indexOf(to.path) > arr.indexOf(from.path)
+      this.transitionName = compare ? 'transitionLeft' : 'transitionRight'
+    }
+  },
+ 
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
